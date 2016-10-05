@@ -1,10 +1,12 @@
 package com.eli.calc.shape.service.ws;
 
+import javax.jws.WebParam;
 import javax.jws.WebService;
 import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
 import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
+import javax.xml.bind.annotation.XmlElement;
 
 import com.eli.calc.shape.service.ws.parms.QueueCalculationParms;
 import com.eli.calc.shape.service.ws.types.CalculatedResultsResponse;
@@ -32,7 +34,11 @@ public interface ShapeCalculatorWebService {
 	 */
 	@PUT
 	@Path("/pending")
-    StatusResponse queueCalculation( QueueCalculationParms parameters);
+    StatusResponse queueCalculation(
+    		@WebParam(name="QueueCalculationParms")
+    		@XmlElement(required=true)
+    		QueueCalculationParms parameters
+    		);
 
     @GET
     @Path("/pending")
