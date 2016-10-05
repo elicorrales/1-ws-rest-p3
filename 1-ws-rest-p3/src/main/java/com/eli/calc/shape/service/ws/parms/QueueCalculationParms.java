@@ -1,21 +1,17 @@
 
 package com.eli.calc.shape.service.ws.parms;
 
-import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
 import com.eli.calc.shape.model.CalcType;
 import com.eli.calc.shape.model.ShapeName;
 
 
-@XmlRootElement
+@XmlRootElement(name="QueueCalculationParms")
 public class QueueCalculationParms {
 
-	@XmlElement(required=true)
     protected ShapeName shapeName;
-	@XmlElement(required=true)
     protected CalcType calcType;
-	@XmlElement(required=true)
     protected double dimension;
 
     public ShapeName getShapeName() {
