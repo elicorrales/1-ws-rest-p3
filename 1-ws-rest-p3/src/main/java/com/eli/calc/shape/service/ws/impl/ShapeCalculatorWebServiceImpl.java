@@ -75,11 +75,15 @@ public class ShapeCalculatorWebServiceImpl implements ShapeCalculatorWebService 
 	@Override
 	public StatusResponse queueCalculation(QueueCalculationParms parameters) {
 
-		logger.debug("\n\n\nExecuting operation queueCalculationRequest:"
+		if (null!=parameters) {
+			logger.debug("\n\n\nExecuting operation queueCalculationRequest:"
 				+parameters.getShapeName()+","
 				+parameters.getCalcType()+","+
 				parameters.getDimension()+" ...\n\n\n");
-
+		} else {
+			logger.debug("\n\n\nExecuting operation queueCalculationRequest with NULL parameters...\n\n\n");
+		}
+		
 		StatusResponse response = null;
 		try {
 			
